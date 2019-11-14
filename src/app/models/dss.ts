@@ -36,7 +36,7 @@ export class DSSConfiguration {
      // OutputType_ID: string;
      AUTOSIGN: boolean;
      CERT_NAME: string;
-     CERT_EX_DT: Date;
+     CERT_EX_DT: string;
      AUTHORITY: string;
      DISPLAYTITLE1: string;
      DISPLAYTITLE2: string;
