@@ -672,6 +672,7 @@ export class AdminDashboardComponent implements OnInit {
               this.IsProgressBarVisibile = false;
               this.notificationSnackBarComponent.openSnackBar('Configuration updated successfully', SnackBarStatus.success);
               this.GetAllConfigurations();
+              this.GetAllExpiredCertificates();
             },
             (err) => {
               this.IsProgressBarVisibile = false;
