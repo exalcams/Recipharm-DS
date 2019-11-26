@@ -101,9 +101,9 @@ navbar {
             flex: 1 0 auto;
             align-items: center;
             justify-content: space-between;
-            min-height: 64px;
-            max-height: 64px;
-            height: 64px;
+            min-height: 90px;
+            max-height: 90px;
+            height: 90px;
             padding: 12px 12px 12px 20px;
 
             @include media-breakpoint('xs') {
@@ -117,8 +117,8 @@ navbar {
                 align-items: center;
 
                 .logo-icon {
-                    width: 160px;
-                    height: 55px;
+                    width: 190px;
+                    height: 85px;
                 }
 
                 .logo-text {

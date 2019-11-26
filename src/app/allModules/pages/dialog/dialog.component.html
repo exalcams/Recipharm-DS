@@ -16,36 +16,24 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
-                <input matInput name="Config1" placeholder="Configuaration 1(Plant)" formControlName="Config1" [readonly]="DSSConfigurationData.CONFIG_ID">
+                <input matInput name="Config1" placeholder="Configuaration 1(Document Type)" formControlName="Config1" readonly>
                 <mat-error *ngIf="ConfigurationFormGroup.get('Config1').touched && ConfigurationFormGroup.get('Config1').hasError('required')">
                     Configuaration 1 is required
                 </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput name="Config2" placeholder="Configuaration 2(Document Type)" formControlName="Config2" readonly>
-                <!-- <mat-error *ngIf="ConfigurationFormGroup.get('Config2').touched && ConfigurationFormGroup.get('Config2').hasError('required')">
+                <input matInput name="Config2" placeholder="Configuaration 2" formControlName="Config2" [readonly]="DSSConfigurationData.CONFIG_ID" >
+                <mat-error *ngIf="ConfigurationFormGroup.get('Config2').touched && ConfigurationFormGroup.get('Config2').hasError('required')">
                     Configuaration 2 is required
-                </mat-error> -->
+                </mat-error>
             </mat-form-field>
             <mat-form-field>
                     <mat-select placeholder="Configuaration 3(Output Type)" [(value)]="SelectOutPutType"  formControlName="Config3"
                         [disabled]="DSSConfigurationData.CONFIG_ID" required>
                         <!-- <mat-option>None</mat-option> -->
                         <mat-option value="ZDES">ZDES</mat-option>
-                        <!-- <mat-option value="Test2">Test2</mat-option> -->
-                        <!-- <mat-option value="ZSER">ZSER</mat-option>
-                        <mat-option value="ZEXS">ZEXS</mat-option>
-                        <mat-option value="ZGGG">ZGGG</mat-option>
-                        <mat-option value="ZGP">ZGP</mat-option>
-                        <mat-option value="ZSPN">ZSPN</mat-option>
-                        <mat-option value="ZIMT">ZIMT</mat-option>
-                        <mat-option value="ZMAC">ZMAC</mat-option>
-                        <mat-option value="ZMEO">ZMEO</mat-option>
-                        <mat-option value="ZPCG">ZPCG</mat-option>
-                        <mat-option value="ZIDN">ZIDN</mat-option>
-                        <mat-option value="ZSPS">ZSPS</mat-option>
-                        <mat-option value="ZIDT">ZIDT</mat-option> -->
-                        <!-- </mat-select> -->
+                        <mat-option value="ZCUS">ZCUS</mat-option>
+                        <mat-option value="ZVEN">ZVEN</mat-option>
                     </mat-select>
                     <mat-error *ngIf="ConfigurationFormGroup.get('Config3').touched && ConfigurationFormGroup.get('Config3').hasError('required')">
                         Configuaration 3 is required
