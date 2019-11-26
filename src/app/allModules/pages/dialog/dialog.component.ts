@@ -197,6 +197,6 @@ export class DialogComponent implements OnInit {
         this.matDialogRef.close(null);
     }
     GetDocumentType(documentType: string): void {
-        this.ConfigurationFormGroup.controls['Config2'].setValue(documentType);
+        this.ConfigurationFormGroup.controls['Config1'].setValue(documentType);
     }
 }
