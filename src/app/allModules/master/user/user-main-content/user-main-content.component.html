@@ -85,7 +85,8 @@
 
     <div class="p-12" fxFlex="50">
         <button type="button" mat-button color="accent" (click)="imgFileInput.click()">Choose Profile
-            <mat-icon>image</mat-icon>
+            <!-- <mat-icon>image</mat-icon> -->
+            <img src="/assets/images/icons/image.png"style="height: 20px;width: 20px;">
         </button>
         <span class="selectProfileClass">{{fileToUpload?.name}}</span>
         <input hidden type="file" #imgFileInput id="file" accept=".jpg,.jpeg,.png" (change)="handleFileInput($event)"/>

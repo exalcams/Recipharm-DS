@@ -52,7 +52,8 @@
 
                 <button *ngIf="authenticationDetails?.userType !== 'Himalaya email id user'" mat-menu-item
                     (click)="ChangePasswordClick()">
-                    <mat-icon>account_circle</mat-icon>
+                    <!-- <mat-icon>account_circle</mat-icon> -->
+                    <img src="/assets/images/icons/round-account.png" style="height: 18px;width: 18px;margin-top: 14px;">
                     <span>Change Password</span>
                 </button>
 
@@ -62,7 +63,8 @@
                 </button> -->
 
                 <button mat-menu-item class="" (click)="logOutClick()">
-                    <mat-icon>exit_to_app</mat-icon>
+                    <img src="/assets/images/icons/logout.png" style="height: 18px;width: 18px;margin-top: 14px;">
+                    <!-- <mat-icon>exit_to_app</mat-icon> -->
                     <span>Logout</span>
                 </button>
 

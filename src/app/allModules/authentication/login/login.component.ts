@@ -211,7 +211,8 @@ export class LoginComponent implements OnInit {
           title: 'Dashboard',
           translate: 'NAV.SAMPLE.TITLE',
           type: 'item',
-          icon: 'dashboard',
+          icon: 'dashbordIcon',
+          isSvgIcon: true,
           url: '/pages/adminDashboard',
         }
       );
@@ -223,7 +224,8 @@ export class LoginComponent implements OnInit {
           title: 'Dashboard',
           translate: 'NAV.SAMPLE.TITLE',
           type: 'item',
-          icon: 'dashboard',
+          icon: 'dashbordIcon',
+          isSvgIcon: true,
           url: '/pages/dashboard',
         }
       );
@@ -267,7 +269,8 @@ export class LoginComponent implements OnInit {
         title: 'Master',
         // translate: 'NAV.DASHBOARDS',
         type: 'collapsable',
-        icon: 'view_list',
+        icon: 'viewIconlist',
+        isSvgIcon: true,
         children: this.subChildren
       }
       );
@@ -287,7 +290,8 @@ export class LoginComponent implements OnInit {
         id: 'reports',
         title: 'Reports',
         type: 'collapsable',
-        icon: 'description',
+        icon: 'descriptionIcon',
+         isSvgIcon: true,
         children: this.reportsSubChildren
       }
       );

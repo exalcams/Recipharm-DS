@@ -37,8 +37,12 @@
     </a>
 
     <ng-template #itemContent>
-        <mat-icon class="nav-link-icon" *ngIf="item.icon">{{item.icon}}</mat-icon>
-        <span class="nav-link-title" [translate]="item.translate">{{item.title}}</span>
+        <!-- <mat-icon class="nav-link-icon" *ngIf="item.icon">{{item.icon}}</mat-icon>
+        <span class="nav-link-title" [translate]="item.translate">{{item.title}}</span> -->
+        <mat-icon class="nav-link-icon" *ngIf="item.icon && !item.isSvgIcon">{{item.icon}}</mat-icon>
+        <mat-icon class="nav-link-svg-icon" style="height: 24px; width: 40px;margin-left: -5px" [svgIcon]="item.icon"
+            *ngIf="item.icon && item.isSvgIcon"></mat-icon>
+        <span class="nav-link-title" style="margin-left: 10px" [translate]="item.translate">{{item.title}}</span>
         <span class="nav-link-badge" *ngIf="item.badge" [translate]="item.badge.translate"
               [ngStyle]="{'background-color': item.badge.bg,'color': item.badge.fg}">
             {{item.badge.title}}
