@@ -3,14 +3,16 @@
       <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
           <div class="search-wrapper" fxFlex fxLayout="row" fxLayoutAlign="start center">
               <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
-                  <mat-icon>search</mat-icon>
+                  <!-- <mat-icon>search</mat-icon> -->
+                  <img src="/assets/images/icons/search_black.png" style="height: 24px;width: 24px;">
                   <input [(ngModel)]="searchText" type="text" placeholder="Search" fxFlex>
               </div>
           </div>
           <div fxFlex fxLayout="row" fxLayoutAlign="end center">
                   <button class="mat-mini-fab mat-accent" (click)="clearUser()">
                       <span class="mat-button-wrapper">
-                          <mat-icon>add_circle_outline</mat-icon>
+                          <!-- <mat-icon>add_circle_outline</mat-icon> -->
+                          <img src="/assets/images/icons/add-button.png" style="height: 24px;width: 24px;">
                       </span>
                   </button>
               </div>

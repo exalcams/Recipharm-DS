@@ -3,7 +3,8 @@
         <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
             <span class="title dialog-title">{{DSSConfigurationData.CONFIG_ID?'Update':'Create'}} Configuration</span>
             <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
-                <mat-icon>close</mat-icon>
+                <!-- <mat-icon>close</mat-icon> -->
+                <img src="/assets/images/icons/outline_close.png" style="height: 24px;width: 24px;">
             </button>
         </mat-toolbar-row>
     </mat-toolbar>
@@ -28,12 +29,19 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field>
-                    <mat-select placeholder="Configuaration 3(Output Type)" [(value)]="SelectOutPutType"  formControlName="Config3"
+                    <!-- <mat-select placeholder="Configuaration 3(Output Type)" [(value)]="SelectOutPutType"  formControlName="Config3"
                         [disabled]="DSSConfigurationData.CONFIG_ID" required>
-                        <!-- <mat-option>None</mat-option> -->
                         <mat-option value="ZDES">ZDES</mat-option>
                         <mat-option value="ZCUS">ZCUS</mat-option>
                         <mat-option value="ZVEN">ZVEN</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="ConfigurationFormGroup.get('Config3').touched && ConfigurationFormGroup.get('Config3').hasError('required')">
+                        Configuaration 3 is required
+                    </mat-error>
+                </mat-form-field> -->
+                 <mat-select placeholder="Configuaration 3(Output Type)"   formControlName="Config3"
+                        [disabled]="DSSConfigurationData.CONFIG_ID" required>
+                        <mat-option *ngFor="let output of OutputTypeList" [(value)]="output.SelectOutPutType">{{output.SelectOutPutType}}</mat-option>
                     </mat-select>
                     <mat-error *ngIf="ConfigurationFormGroup.get('Config3').touched && ConfigurationFormGroup.get('Config3').hasError('required')">
                         Configuaration 3 is required
