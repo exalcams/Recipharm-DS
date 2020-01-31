@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
 import { GetDocument, DSSConfiguration, DSSInvoice, DSSStatusCount, CertificateClass, DSSErrorInvoice, UserByPlant, ErrorInvoice } from 'app/models/dss';
 import { catchError } from 'rxjs/operators';
 import { UserLoginHistory, LoginHistoryFilter } from 'app/models/master';
+import { GateExitLogDetails, ReportFilters } from 'app/models/report';
 
 @Injectable()
 export class ReportService {
@@ -20,7 +21,6 @@ export class ReportService {
   constructor(private _httpClient: HttpClient, private _authService: AuthService) {
     this.baseUrl = _authService.baseAddress;
   }
-
 
   errorHandler(error: HttpErrorResponse): Observable<string> {
     return throwError(error.error.error_description || error.error || error.message || 'Server Error');
@@ -56,5 +56,35 @@ export class ReportService {
       })
       .pipe(catchError(this.errorHandler));
   }
+
+  // Gate Exit Logs Start
+
+  GetAllEwaybillNos(ID: number): Observable<string[] | string> {
+    return this._httpClient.get<string[]>(`${this.baseUrl}api/Reports/GetAllEwaybillNos?UserID=${ID}`)
+      .pipe(catchError(this.errorHandler));
+  }
+
+
+  GetAllGateExitLogs(ID: number): Observable<GateExitLogDetails[] | string> {
+    return this._httpClient.get<GateExitLogDetails[]>(`${this.baseUrl}api/Reports/GetAllGateExitLogs?UserID=${ID}`)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  GetAllGateExitLogsBasedOnEwaybillNoFilter(reportFilters: ReportFilters): Observable<GateExitLogDetails[] | string> {
+    return this._httpClient.post<GateExitLogDetails[]>(`${this.baseUrl}api/Reports/GetAllGateExitLogsBasedOnEwaybillNoFilter`, reportFilters)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  GetAllGateExitLogsBasedOnPlantFilter(reportFilters: ReportFilters): Observable<GateExitLogDetails[] | string> {
+    return this._httpClient.post<GateExitLogDetails[]>(`${this.baseUrl}api/Reports/GetAllGateExitLogsBasedOnPlantFilter`, reportFilters)
+      .pipe(catchError(this.errorHandler));
+  }
+
+
+  GetAllGateExitLogsBasedOnDateFilter(reportFilters: ReportFilters): Observable<GateExitLogDetails[] | string> {
+    return this._httpClient.post<GateExitLogDetails[]>(`${this.baseUrl}api/Reports/GetAllGateExitLogsBasedOnDateFilter`, reportFilters)
+      .pipe(catchError(this.errorHandler));
+  }
+   // Gate Exit Logs End
 
 }
