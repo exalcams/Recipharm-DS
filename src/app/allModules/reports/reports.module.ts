@@ -1,3 +1,4 @@
+import { GateExitLogComponent } from './gate-exit-log/gate-exit-log.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -63,6 +64,10 @@ const routes = [
         component: LoginHistoryComponent
     },
     {
+        path: 'gateExitLog',
+        component: GateExitLogComponent
+    },
+    {
         path: '**',
         redirectTo: '/auth/login'
     }
@@ -121,7 +126,7 @@ const routes = [
 
         FormsModule,
     ],
-    declarations: [LoginHistoryComponent],
+    declarations: [LoginHistoryComponent,GateExitLogComponent],
     providers: [ReportService],
     entryComponents: [
     ]
