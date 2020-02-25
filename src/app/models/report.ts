@@ -5,7 +5,7 @@ export class GateExitLogDetails {
     ID: number;
     InvoiceNumber: string;
     EWayBillNumber: string;
-    CustomerPO: string;
+    ReferenceNO: string;
     Status: string;
     QRCodeScanTime: string;
     CREATED_BY: string;
