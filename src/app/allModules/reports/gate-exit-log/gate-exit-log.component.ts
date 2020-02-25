@@ -31,7 +31,7 @@ export class GateExitLogComponent implements OnInit, OnDestroy {
   content1Show = false;
   content1ShowName: string;
   // tslint:disable-next-line:max-line-length
-  displayedColumns: string[] = [ 'InvoiceNumber', 'EWayBillNumber', 'CustomerPO', 'Status', 'QRCodeScanTime','CREATED_ON'];
+  displayedColumns: string[] = [ 'InvoiceNumber', 'EWayBillNumber', 'ReferenceNO', 'Status', 'QRCodeScanTime','CREATED_ON'];
   dataSource: MatTableDataSource<GateExitLogDetails>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -67,10 +67,10 @@ export class GateExitLogComponent implements OnInit, OnDestroy {
     }
 
     this.GetAllEwaybillNos();
-
-    this.SetIntervalID = setInterval(() => {
-      this.GetAllGateExitLogs();
-    }, 3000);
+    this.GetAllGateExitLogs();
+    // this.SetIntervalID = setInterval(() => {
+    //   this.GetAllGateExitLogs();
+    // }, 3000);
 
   }
 
@@ -385,6 +385,6 @@ export class GateExitLogComponent implements OnInit, OnDestroy {
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.reportFormGroup.get('EWAYBILL_NO').patchValue('');
-    this.reportFormGroup.get('PLANT').patchValue('');
+    // this.reportFormGroup.get('PLANT').patchValue('');
   }
 }
