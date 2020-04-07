@@ -453,7 +453,22 @@
                 <td mat-cell *matCellDef="let row"> {{row.CONFIG3}} </td>
               </ng-container>
 
-              <ng-container matColumnDef="DISPLAYTITLE1">
+              <ng-container matColumnDef="AUTHORITY">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Authority1</th>
+                <td mat-cell *matCellDef="let row"> {{row.AUTHORITY}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="AUTHORITY1">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Authority2</th>
+                <td mat-cell *matCellDef="let row"> {{row.AUTHORITY1}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="AUTHORITY2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Authority3</th>
+                <td mat-cell *matCellDef="let row"> {{row.AUTHORITY2}} </td>
+              </ng-container>
+
+              <!-- <ng-container matColumnDef="DISPLAYTITLE1">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Title1</th>
                 <td mat-cell *matCellDef="let row"> {{row.DISPLAYTITLE1}} </td>
               </ng-container>
@@ -462,7 +477,7 @@
               <ng-container matColumnDef="DISPLAYTITLE2">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Title2</th>
                 <td mat-cell *matCellDef="let row"> {{row.DISPLAYTITLE2}} </td>
-              </ng-container>
+              </ng-container> -->
 
               <ng-container matColumnDef="CREATED_ON">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedOn</th>
@@ -515,8 +530,23 @@
                 <td mat-cell *matCellDef="let row"> {{row.CONFIG3}} </td>
               </ng-container>
 
+              <ng-container matColumnDef="AUTHORITY">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Authority1</th>
+                <td mat-cell *matCellDef="let row"> {{row.AUTHORITY}} </td>
+              </ng-container>
 
-              <ng-container matColumnDef="DISPLAYTITLE1">
+              <ng-container matColumnDef="AUTHORITY1">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Authority2</th>
+                <td mat-cell *matCellDef="let row"> {{row.AUTHORITY1}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="AUTHORITY2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Authority3</th>
+                <td mat-cell *matCellDef="let row"> {{row.AUTHORITY2}} </td>
+              </ng-container>
+
+
+              <!-- <ng-container matColumnDef="DISPLAYTITLE1">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Title1</th>
                 <td mat-cell *matCellDef="let row"> {{row.DISPLAYTITLE1}} </td>
               </ng-container>
@@ -525,7 +555,7 @@
               <ng-container matColumnDef="DISPLAYTITLE2">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Title2</th>
                 <td mat-cell *matCellDef="let row"> {{row.DISPLAYTITLE2}} </td>
-              </ng-container>
+              </ng-container> -->
 
               <ng-container matColumnDef="CERT_EX_DT">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Expired On</th>

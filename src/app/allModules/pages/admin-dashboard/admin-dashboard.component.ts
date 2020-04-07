@@ -72,9 +72,9 @@ export class AdminDashboardComponent implements OnInit {
   SignDocumentsColumns: string[] = ['INV_NAME', 'CODE', 'DOCTYPE', 'AREA', 'SIGNED_AUTHORITY', 'SIGNED_ON', 'View', 'Download'];
   UnSignDocumentsColumns: string[] = ['INV_NAME', 'CODE', 'DOCTYPE', 'AREA','SIGNED_AUTHORITY', 'CREATED_ON', 'View', 'Download'];
   // tslint:disable-next-line:max-line-length
-  ConfigurationsColumns: string[] = ['CONFIG1', 'CONFIG2', 'CONFIG3', 'AUTHORITY', 'AUTOSIGN', 'DISPLAYTITLE1', 'DISPLAYTITLE2', 'CREATED_ON', 'Edit', 'Delete'];
+  ConfigurationsColumns: string[] = ['CONFIG1', 'CONFIG2', 'CONFIG3', 'AUTHORITY','AUTHORITY1','AUTHORITY2', 'AUTOSIGN', 'CREATED_ON', 'Edit', 'Delete'];
   // tslint:disable-next-line:max-line-length
-  ExpiredCertificatesColumns: string[] = ['CONFIG1', 'CONFIG2', 'CONFIG3', 'AUTHORITY', 'AUTOSIGN', 'DISPLAYTITLE1', 'DISPLAYTITLE2', 'CERT_EX_DT', 'Edit', 'Delete'];
+  ExpiredCertificatesColumns: string[] = ['CONFIG1', 'CONFIG2', 'CONFIG3', 'AUTHORITY','AUTHORITY1','AUTHORITY2', 'AUTOSIGN', 'CERT_EX_DT', 'Edit', 'Delete'];
   ErrorDocumentsColumns: string[] = ['INV_NAME', 'CODE', 'DOCTYPE', 'AREA','CREATED_ON', 'Comment', 'View', 'Download'];
 
   @ViewChild(MatPaginator) SignDocumentsPaginator: MatPaginator;
@@ -438,22 +438,22 @@ export class AdminDashboardComponent implements OnInit {
       this.AllFilteredUsers = this.AllUsers;
     }
   }
-  DocumentTypeIDSelected(event): void {
-    // console.log(event.value);
-    if (event.value) {
-      const OutputIDList = this.AllDocumentOutputTypeMapView.filter(x => x.DocumentType === event.value);
-      this.AllFilteredOutputTypes = this.AllOutputTypes.filter(x => OutputIDList.some((y) => x.OutputType_ID === y.OutputType_ID));
-      const outp = this.documentFormGroup.get('OutputTypeID').value;
-      if (outp) {
-        const res = this.AllFilteredOutputTypes.filter(x => x.OutputType_ID === outp)[0];
-        if (!res) {
-          this.documentFormGroup.get('OutputTypeID').patchValue('');
-        }
-      }
-    } else {
-      this.AllFilteredOutputTypes = this.AllOutputTypes;
-    }
-  }
+  // DocumentTypeIDSelected(event): void {
+  //   // console.log(event.value);
+  //   if (event.value) {
+  //     const OutputIDList = this.AllDocumentOutputTypeMapView.filter(x => x.DocumentType === event.value);
+  //     this.AllFilteredOutputTypes = this.AllOutputTypes.filter(x => OutputIDList.some((y) => x.OutputType_ID === y.OutputType_ID));
+  //     const outp = this.documentFormGroup.get('OutputTypeID').value;
+  //     if (outp) {
+  //       const res = this.AllFilteredOutputTypes.filter(x => x.OutputType_ID === outp)[0];
+  //       if (!res) {
+  //         this.documentFormGroup.get('OutputTypeID').patchValue('');
+  //       }
+  //     }
+  //   } else {
+  //     this.AllFilteredOutputTypes = this.AllOutputTypes;
+  //   }
+  // }
   GetAllNormalUsers(): void {
     this.masterService.GetAllNormalUsers().subscribe((data) => {
       if (data) {

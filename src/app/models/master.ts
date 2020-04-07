@@ -6,6 +6,8 @@ export class UserWithRole {
     UserName: string;
     UserType: string;
     Email: string;
+    DisplayTitle1:string;
+    DisplayTitle2:string;
     ContactNumber: string;
     // Plant: string;
     // DocumentType: string;
@@ -125,7 +127,7 @@ export class PriorityView {
 
 export class OutputType {
     ID: number;
-    OutputType_ID: string;
+    // OutputType_ID: string;
     OutputType_Name: string;
     IsActive: boolean;
     CreatedOn: Date;
@@ -134,7 +136,7 @@ export class OutputType {
     ModifiedBy: string;
 }
 export class OutputTypeView {
-    OutputType_ID: string;
+    ID: string;
     OutputType_Name: string;
 }
 
