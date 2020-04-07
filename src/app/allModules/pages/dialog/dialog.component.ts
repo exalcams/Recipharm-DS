@@ -5,7 +5,7 @@ import { DSSConfiguration, CertificateClass, UserByPlant, AuthorityClass } from 
 import { DashboardService } from 'app/services/dashboard.service';
 import { MasterService } from 'app/services/master.service';
 import { DISABLED } from '@angular/forms/src/model';
-import { PlantView, DocumentTypeView, OutputTypeView } from 'app/models/master';
+import { PlantView, DocumentTypeView, OutputTypeView, OutputType } from 'app/models/master';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -25,14 +25,16 @@ export class DialogComponent implements OnInit {
     // AllDocumentTypes: DocumentTypeView[] = [];
     // AllFilteredDocumentTypes: DocumentTypeView[] = [];
     AllAuthority: AuthorityClass[] = [];
+    AllAuthority1: AuthorityClass[] = [];
+    AllAuthority2: AuthorityClass[] = [];
     AllUsersByPlant: UserByPlant[] = [];
     AllFilteredUsersByPlant: UserByPlant[] = [];
     AllCertificates: CertificateClass[] = [];
     CurrentDSSConfiguration: DSSConfiguration[] = [];
     // OutputTypeList:string[]=['ZWOR','ZWOL','ZFLX','ZOTC','ZRMG','ZDN1','ZDN2','ZDN4','ZJOB','ZBWD','ZSRP','ZD07','ZD08','ZSTO','ZST1','ZCR1','ZCR2','RD00'];
-    OutputTypeList=[{SelectOutPutType:'ZWOR'},{SelectOutPutType:'ZWOL'},{SelectOutPutType:'ZOTC'},{SelectOutPutType:'ZRMG'},{SelectOutPutType:'ZDN1'},{SelectOutPutType:'ZDN2'},
-    {SelectOutPutType:'ZDN4'},{SelectOutPutType:'ZJOB'},{SelectOutPutType:'ZBWD'},{SelectOutPutType:'ZSRP'},{SelectOutPutType:'ZD07'},{SelectOutPutType:'ZD08'},
-    {SelectOutPutType:'ZSTO'},{SelectOutPutType:'ZST1'},{SelectOutPutType:'ZCR1'},{SelectOutPutType:'ZCR2'},{SelectOutPutType:'RD00'},{SelectOutPutType:'ZFLX'}];
+    // tslint:disable-next-line:max-line-length
+    // OutputTypeList = [{ SelectOutPutType: 'ZWOR' }, { SelectOutPutType: 'ZWOL' }, { SelectOutPutType: 'ZOTC' }, { SelectOutPutType: 'ZRMG' }, { SelectOutPutType: 'ZDN1' }, { SelectOutPutType: 'ZDN2' }];
+    // OutputTypeList : string[] = [];
     selectedDocumentType: string;
     // SelectOutPutType: string;
     constructor(
@@ -50,11 +52,13 @@ export class DialogComponent implements OnInit {
             Config1: ['', Validators.required],
             Config2: ['', Validators.required],
             Config3: ['', Validators.required],
-            Authority: ['', Validators.required],
+            Authority1: ['', Validators.required],
+            Authority2: [''],
+            Authority3: [''],
             CertificateName: ['', Validators.required],
             ExpiryDate: ['', Validators.required],
-            DisplayTitle1: ['', Validators.required],
-            DisplayTitle2: ['']
+            // DisplayTitle1: ['', Validators.required],
+            // DisplayTitle2: ['']
         });
         // this.CurrentDSSConfiguration = new DSSConfiguration();
         this.showExtraToFields = false;
@@ -68,7 +72,8 @@ export class DialogComponent implements OnInit {
     ngOnInit(): void {
         this.GetAllCertificateFromStore();
         this.GetAllAuthoritys();
-       // console.log(this.DSSConfigurationData);
+        this.GetAllOutputTypes();
+        // console.log(this.DSSConfigurationData);
         if (this.DSSConfigurationData) {
             this.ConfigurationFormGroup.setValue({
                 // AutoSign: this.DSSConfigurationData.AUTOSIGN ? '1' : '0',
@@ -77,11 +82,13 @@ export class DialogComponent implements OnInit {
                 Config1: this.DSSConfigurationData.CONFIG1,
                 Config2: this.DSSConfigurationData.CONFIG2,
                 Config3: this.DSSConfigurationData.CONFIG3,
-                Authority: this.DSSConfigurationData.AUTHORITY,
+                Authority1: this.DSSConfigurationData.AUTHORITY,
+                Authority2: this.DSSConfigurationData.AUTHORITY1,
+                Authority3: this.DSSConfigurationData.AUTHORITY2,
                 CertificateName: this.DSSConfigurationData.CERT_NAME,
                 ExpiryDate: new Date(this.DSSConfigurationData.CERT_EX_DT),
-                DisplayTitle1: this.DSSConfigurationData.DISPLAYTITLE1,
-                DisplayTitle2: this.DSSConfigurationData.DISPLAYTITLE2
+                // DisplayTitle1: this.DSSConfigurationData.DISPLAYTITLE1,
+                // DisplayTitle2: this.DSSConfigurationData.DISPLAYTITLE2
             });
         } else {
             this.DSSConfigurationData = new DSSConfiguration();
@@ -105,6 +112,18 @@ export class DialogComponent implements OnInit {
         );
     }
 
+    GetAllOutputTypes(): void {
+        this.masterService.GetAllOutputTypeViews().subscribe(
+            data => {
+                this.AllOutputTypes = <OutputTypeView[]>data;
+                console.log(this.AllOutputTypes);
+            },
+            err => {
+                console.error(err);
+            }
+        );
+    }
+
     GetAllUserEmails(): void {
         this.dashboardService.GetAllUserEmails().subscribe(
             data => {
@@ -116,12 +135,12 @@ export class DialogComponent implements OnInit {
         );
     }
 
-    SignedAuthoritySelected(SignedAuthority: string): void {
-       // console.log(SignedAuthority);
-        const res = this.AllAuthority.filter(x => x.UserName === SignedAuthority)[0];
-        if (res) {
-        }
-    }
+    // SignedAuthoritySelected(SignedAuthority: string): void {
+    //     // console.log(SignedAuthority);
+    //     const res = this.AllAuthority.filter(x => x.UserName === SignedAuthority)[0];
+    //     if (res) {
+    //     }
+    // }
 
     GetAllCertificateFromStore(): void {
         this.dashboardService.GetAllCertificateFromStore().subscribe(
@@ -185,9 +204,11 @@ export class DialogComponent implements OnInit {
 
             this.DSSConfigurationData.CERT_NAME = this.ConfigurationFormGroup.get('CertificateName').value;
             this.DSSConfigurationData.CERT_EX_DT = this.datepipe.transform(this.ConfigurationFormGroup.get('ExpiryDate').value, 'yyyy-MM-dd HH:mm:ss');
-            this.DSSConfigurationData.AUTHORITY = this.ConfigurationFormGroup.get('Authority').value;
-            this.DSSConfigurationData.DISPLAYTITLE1 = this.ConfigurationFormGroup.get('DisplayTitle1').value;
-            this.DSSConfigurationData.DISPLAYTITLE2 = this.ConfigurationFormGroup.get('DisplayTitle2').value;
+            this.DSSConfigurationData.AUTHORITY = this.ConfigurationFormGroup.get('Authority1').value;
+            this.DSSConfigurationData.AUTHORITY1 = this.ConfigurationFormGroup.get('Authority2').value;
+            this.DSSConfigurationData.AUTHORITY2 = this.ConfigurationFormGroup.get('Authority3').value;
+            // this.DSSConfigurationData.DISPLAYTITLE1 = this.ConfigurationFormGroup.get('DisplayTitle1').value;
+            // this.DSSConfigurationData.DISPLAYTITLE2 = this.ConfigurationFormGroup.get('DisplayTitle2').value;
             this.matDialogRef.close(this.DSSConfigurationData);
         } else {
             Object.keys(this.ConfigurationFormGroup.controls).forEach(key => {
@@ -202,5 +223,41 @@ export class DialogComponent implements OnInit {
     }
     GetDocumentType(documentType: string): void {
         this.ConfigurationFormGroup.controls['Config1'].setValue(documentType);
+    }
+
+    SignedAuthority1Selected(): void {
+        this.DisableMatOptions();
+    }
+    SignedAuthoritySelected(): void {
+        this.DisableMatOptions();
+    }
+
+    DisableMatOptions(): void {
+
+        if (this.AllAuthority && this.AllAuthority.length > 0) {
+            this.AllAuthority.forEach(x => (x.IsSelected = false));
+            const Priority1User = this.ConfigurationFormGroup.get('Authority1').value;
+            console.log(this.AllAuthority);
+            if (Priority1User) {
+                const p1u = this.AllAuthority.find(x => x.UserName === Priority1User);
+                if (p1u) {
+                    p1u.IsSelected = true;
+                }
+            }
+            const Priority2User = this.ConfigurationFormGroup.get('Authority2').value;
+            if (Priority2User) {
+                const p2u = this.AllAuthority.find(x => x.UserName === Priority2User);
+                if (p2u) {
+                    p2u.IsSelected = true;
+                }
+            }
+            const Priority3User = this.ConfigurationFormGroup.get('Authority3').value;
+            if (Priority3User) {
+                const p3u = this.AllAuthority.find(x => x.UserName === Priority3User);
+                if (p3u) {
+                    p3u.IsSelected = true;
+                }
+            }
+        }
     }
 }

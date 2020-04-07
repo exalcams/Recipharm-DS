@@ -8,7 +8,7 @@ export class DSSInvoice {
      SIGNED_AUTHORITY: string;
      SIGNED_ON: Date;
      AUTOSIGNED: boolean;
-     CREATED_ON:Date;
+     CREATED_ON: Date;
 }
 export class DSSErrorInvoice {
      ID: number;
@@ -26,7 +26,7 @@ export class ErrorInvoice {
      INVOICE_NAME: string;
      CREATED_ON?: Date;
      COMMENT: string;
-     SIGNED_AUTHORITY:string;
+     SIGNED_AUTHORITY: string;
 }
 export class DSSConfiguration {
      CONFIG_ID: number;
@@ -38,6 +38,8 @@ export class DSSConfiguration {
      CERT_NAME: string;
      CERT_EX_DT: string;
      AUTHORITY: string;
+     AUTHORITY1: string;
+     AUTHORITY2: string;
      DISPLAYTITLE1: string;
      DISPLAYTITLE2: string;
      CONFIG1: string;
@@ -82,7 +84,7 @@ export class DSSStatusCount {
      ErrorDocumentCount: number;
      ConfigurationCount: number;
      ExpiryCerificateCount: number;
-     UnSignedDocumnentCount:number;
+     UnSignedDocumnentCount: number;
 }
 
 export class CertificateClass {
@@ -92,6 +94,7 @@ export class CertificateClass {
 
 export class AuthorityClass {
      UserName: string;
+     IsSelected: boolean;
 }
 
 export class GetDocument {

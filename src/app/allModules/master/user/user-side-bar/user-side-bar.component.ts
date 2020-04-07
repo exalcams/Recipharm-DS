@@ -37,7 +37,7 @@ export class UserSideBarComponent implements OnInit, OnChanges {
   loadSelectedUser(SelectedUser: UserWithRole): void {
     this.selectID = SelectedUser.UserID;
     this.UserSelectionChanged.emit(SelectedUser);
-    // console.log(SelectedMenuApp);
+     console.log(SelectedUser);
   }
 
   clearUser(): void {

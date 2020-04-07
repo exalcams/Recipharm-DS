@@ -44,9 +44,10 @@ export class UserComponent implements OnInit {
   GetAllUsers(): void {
     this._masterService.GetAllUsers().subscribe(
       (data) => {
+        console.log(data);
         this.AllUsers = <UserWithRole[]>data;
         this.IsProgressBarVisibile = false;
-        // console.log(this.AllUsers);
+        //  console.log(this.AllUsers);
       },
       (err) => {
         console.error(err);
