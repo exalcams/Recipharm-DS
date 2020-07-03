@@ -69,13 +69,13 @@ export class AdminDashboardComponent implements OnInit {
   ConfigurationsDataSource: MatTableDataSource<DSSConfiguration>;
   ExpiredCertificatesDataSource: MatTableDataSource<DSSConfiguration>;
   ErrorDocumentsDataSource: MatTableDataSource<DSSErrorInvoice>;
-  SignDocumentsColumns: string[] = ['INV_NAME', 'CODE', 'DOCTYPE', 'AREA', 'SIGNED_AUTHORITY', 'SIGNED_ON', 'View', 'Download'];
+  SignDocumentsColumns: string[] = ['INV_NAME', 'PLANT','CODE', 'DOCTYPE', 'AREA', 'SIGNED_AUTHORITY', 'SIGNED_ON', 'View', 'Download'];
   UnSignDocumentsColumns: string[] = ['INV_NAME', 'CODE', 'DOCTYPE', 'AREA','SIGNED_AUTHORITY', 'CREATED_ON', 'View', 'Download'];
   // tslint:disable-next-line:max-line-length
-  ConfigurationsColumns: string[] = ['CONFIG1', 'CONFIG2', 'CONFIG3', 'AUTHORITY','AUTHORITY1','AUTHORITY2', 'AUTOSIGN', 'CREATED_ON', 'Edit', 'Delete'];
+  ConfigurationsColumns: string[] = ['CONFIG1', 'AUTHORITY','AUTHORITY1','AUTHORITY2', 'AUTOSIGN', 'CREATED_ON', 'Edit', 'Delete'];
   // tslint:disable-next-line:max-line-length
-  ExpiredCertificatesColumns: string[] = ['CONFIG1', 'CONFIG2', 'CONFIG3', 'AUTHORITY','AUTHORITY1','AUTHORITY2', 'AUTOSIGN', 'CERT_EX_DT', 'Edit', 'Delete'];
-  ErrorDocumentsColumns: string[] = ['INV_NAME', 'CODE', 'DOCTYPE', 'AREA','CREATED_ON', 'Comment', 'View', 'Download'];
+  ExpiredCertificatesColumns: string[] = ['CONFIG1', 'AUTHORITY','AUTHORITY1','AUTHORITY2', 'AUTOSIGN', 'CERT_EX_DT', 'Edit', 'Delete'];
+  ErrorDocumentsColumns: string[] = ['INV_NAME','PLANT', 'CODE', 'DOCTYPE', 'AREA','CREATED_ON', 'Comment', 'View', 'Download'];
 
   @ViewChild(MatPaginator) SignDocumentsPaginator: MatPaginator;
   @ViewChild(MatPaginator) UnSignDocumentsPaginator: MatPaginator;
@@ -265,7 +265,8 @@ export class AdminDashboardComponent implements OnInit {
           this.SignDocumentsDataSource = new MatTableDataSource(this.AllSignedDocument);
           this.SignDocumentsDataSource.paginator = this.SignDocumentsPaginator;
           this.SignDocumentsDataSource.sort = this.SignDocumentsSort;
-          this.DSSStatusCount.SignedDocumnentCount = this.AllSignedDocument.length;
+          // this.DSSStatusCount.SignedDocumnentCount = this.AllSignedDocument.length;
+          this.GetDSSStatusCounts();
         }
         this.IsAllSignedDocumentCompleted = true;
         this.IsProgressBarVisibile = false;
@@ -288,6 +289,7 @@ export class AdminDashboardComponent implements OnInit {
           this.UnSignDocumentsDataSource.paginator = this.UnSignDocumentsPaginator;
           this.UnSignDocumentsDataSource.sort = this.UnSignDocumentsSort;
           this.DSSStatusCount.UnSignedDocumnentCount = this.AllUnSignedDocument.length;
+          this.GetDSSStatusCounts();
         }
         this.IsAllUnSignedDocumentCompleted = true;
         this.IsProgressBarVisibile = false;
@@ -309,6 +311,7 @@ export class AdminDashboardComponent implements OnInit {
           this.ConfigurationsDataSource.paginator = this.ConfigurationsPaginator;
           this.ConfigurationsDataSource.sort = this.ConfigurationsSort;
           this.DSSStatusCount.ConfigurationCount = this.AllConfigurations.length;
+          this.GetDSSStatusCounts();
         }
         this.IsProgressBarVisibile = false;
       },
@@ -329,6 +332,7 @@ export class AdminDashboardComponent implements OnInit {
           this.ExpiredCertificatesDataSource.paginator = this.ExpiredCertificatesPaginator;
           this.ExpiredCertificatesDataSource.sort = this.ExpiredCertificatesSort;
           this.DSSStatusCount.ExpiryCerificateCount = this.AllExpiredCertificates.length;
+          this.GetDSSStatusCounts();
         }
         this.IsProgressBarVisibile = false;
       },

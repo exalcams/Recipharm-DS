@@ -1,5 +1,6 @@
 export class DSSInvoice {
      ID: number;
+     PLANT:string;
      CODE: string;
      DOCTYPE: string;
      AREA: string;
@@ -19,6 +20,7 @@ export class DSSErrorInvoice {
 }
 export class ErrorInvoice {
      ID: number;
+     PLANT:string
      CODE: string;
      DOCTYPE: string;
      AREA: string;

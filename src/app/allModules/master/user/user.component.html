@@ -8,7 +8,7 @@
                   <user-side-bar [AllUsers]="AllUsers" (UserSelectionChanged)="OnUserSelectionChanged($event)">
                   </user-side-bar>
               </mat-sidenav>
-              <user-main-content [currentSelectedUser]="SelectedUser" (SaveSucceed)='RefreshAllUsers($event)'
+              <user-main-content style="height: 110% !important;" [currentSelectedUser]="SelectedUser" (SaveSucceed)='RefreshAllUsers($event)'
                   (ShowProgressBarEvent)="OnShowProgressBarEvent($event)">
               </user-main-content>
           </mat-sidenav-container>

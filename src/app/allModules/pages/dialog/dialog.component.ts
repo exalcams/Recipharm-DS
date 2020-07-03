@@ -48,10 +48,10 @@ export class DialogComponent implements OnInit {
         // Set the defaults
         this.ConfigurationFormGroup = this.formBuilder.group({
             // AutoSign: ['', Validators.required],
-            DocumentType: ['', Validators.required],
+            // DocumentType: ['', Validators.required],
             Config1: ['', Validators.required],
-            Config2: ['', Validators.required],
-            Config3: ['', Validators.required],
+            // Config2: ['', Validators.required],
+            // Config3: ['', Validators.required],
             Authority1: ['', Validators.required],
             Authority2: [''],
             Authority3: [''],
@@ -78,10 +78,10 @@ export class DialogComponent implements OnInit {
             this.ConfigurationFormGroup.setValue({
                 // AutoSign: this.DSSConfigurationData.AUTOSIGN ? '1' : '0',
                 // SignedAuthority: this.DSSConfigurationData.AUTHORITY,
-                DocumentType: this.DSSConfigurationData.CONFIG1,
+                // DocumentType: this.DSSConfigurationData.CONFIG1,
                 Config1: this.DSSConfigurationData.CONFIG1,
-                Config2: this.DSSConfigurationData.CONFIG2,
-                Config3: this.DSSConfigurationData.CONFIG3,
+                // Config2: this.DSSConfigurationData.CONFIG2,
+                // Config3: this.DSSConfigurationData.CONFIG3,
                 Authority1: this.DSSConfigurationData.AUTHORITY,
                 Authority2: this.DSSConfigurationData.AUTHORITY1,
                 Authority3: this.DSSConfigurationData.AUTHORITY2,
@@ -197,8 +197,8 @@ export class DialogComponent implements OnInit {
             // this.DSSConfigurationData.DOCTYPE = this.ConfigurationFormGroup.get('DocumentType').value;
             // this.DSSConfigurationData.Plant_ID = this.ConfigurationFormGroup.get('Plant').value;
             this.DSSConfigurationData.CONFIG1 = this.ConfigurationFormGroup.get('Config1').value;
-            this.DSSConfigurationData.CONFIG2 = this.ConfigurationFormGroup.get('Config2').value;
-            this.DSSConfigurationData.CONFIG3 = this.ConfigurationFormGroup.get('Config3').value;
+            // this.DSSConfigurationData.CONFIG2 = this.ConfigurationFormGroup.get('Config2').value;
+            // this.DSSConfigurationData.CONFIG3 = this.ConfigurationFormGroup.get('Config3').value;
             this.DSSConfigurationData.AUTOSIGN = true;
             // this.DSSConfigurationData.AUTHORITY = this.ConfigurationFormGroup.get('SignedAuthority').value;
 
@@ -221,9 +221,9 @@ export class DialogComponent implements OnInit {
     CloseClicked(): void {
         this.matDialogRef.close(null);
     }
-    GetDocumentType(documentType: string): void {
-        this.ConfigurationFormGroup.controls['Config1'].setValue(documentType);
-    }
+    // GetDocumentType(documentType: string): void {
+    //     this.ConfigurationFormGroup.controls['Config1'].setValue(documentType);
+    // }
 
     SignedAuthority1Selected(): void {
         this.DisableMatOptions();
