@@ -11,31 +11,29 @@
 
     <div mat-dialog-content class="p-24 m-0" fusePerfectScrollbar>
         <form name="ConfigurationForm" [formGroup]="ConfigurationFormGroup" fxLayout="column" fxFlex>
-            <mat-form-field>
+            <!-- <mat-form-field>
                 <mat-select placeholder="Document Type" [(value)]="selectedDocumentType"
                     (selectionChange)="GetDocumentType($event.value)" formControlName="DocumentType"
                     [disabled]="DSSConfigurationData.CONFIG_ID" required>
                     <mat-option value="INV">INV</mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-form-field>
-                <input matInput name="Config1" placeholder="Configuaration 1(Document Type)" formControlName="Config1"
-                    readonly>
+                <input matInput name="Config1" placeholder="Plant" formControlName="Config1">
                 <mat-error
                     *ngIf="ConfigurationFormGroup.get('Config1').touched && ConfigurationFormGroup.get('Config1').hasError('required')">
                     Configuaration 1 is required
                 </mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <!-- <mat-form-field>
                 <input matInput name="Config2" placeholder="Configuaration 2" formControlName="Config2"
                     [readonly]="DSSConfigurationData.CONFIG_ID">
                 <mat-error
                     *ngIf="ConfigurationFormGroup.get('Config2').touched && ConfigurationFormGroup.get('Config2').hasError('required')">
                     Configuaration 2 is required
                 </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <!-- <mat-select placeholder="Configuaration 3(Output Type)" [(value)]="SelectOutPutType"  formControlName="Config3"
+            </mat-form-field> -->
+            <!-- <mat-select placeholder="Configuaration 3(Output Type)" [(value)]="SelectOutPutType"  formControlName="Config3"
                         [disabled]="DSSConfigurationData.CONFIG_ID" required>
                         <mat-option value="ZDES">ZDES</mat-option>
                         <mat-option value="ZCUS">ZCUS</mat-option>
@@ -45,6 +43,7 @@
                         Configuaration 3 is required
                     </mat-error>
                 </mat-form-field> -->
+            <!-- <mat-form-field>
                 <mat-select placeholder="Configuaration 3(Output Type)" formControlName="Config3"
                     [disabled]="DSSConfigurationData.CONFIG_ID" required>
                     <mat-option *ngFor="let output of AllOutputTypes" [(value)]="output.OutputType_Name">
@@ -54,7 +53,7 @@
                     *ngIf="ConfigurationFormGroup.get('Config3').touched && ConfigurationFormGroup.get('Config3').hasError('required')">
                     Configuaration 3 is required
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
             <!-- <mat-form-field>
                 <input matInput name="Config3" placeholder="Configuaration 3(Output Type)" formControlName="Config3">
                 <mat-error *ngIf="ConfigurationFormGroup.get('Config3').touched && ConfigurationFormGroup.get('Config3').hasError('required')">

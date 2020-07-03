@@ -244,18 +244,23 @@
                 <td mat-cell *matCellDef="let row"> {{row.INV_NAME}} </td>
               </ng-container>
 
+              <ng-container matColumnDef="PLANT">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Plant </th>
+                <td mat-cell *matCellDef="let row"> {{row.PLANT}} </td>
+              </ng-container>
+
               <ng-container matColumnDef="CODE">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Config1 </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Output Type</th>
                 <td mat-cell *matCellDef="let row"> {{row.CODE}} </td>
               </ng-container>
 
               <ng-container matColumnDef="DOCTYPE">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Config2 </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Billing Type </th>
                 <td mat-cell *matCellDef="let row"> {{row.DOCTYPE}} </td>
               </ng-container>
 
               <ng-container matColumnDef="AREA">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Config3 </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Sales Org </th>
                 <td mat-cell *matCellDef="let row"> {{row.AREA}} </td>
               </ng-container>
 
@@ -452,10 +457,7 @@
                 <td mat-cell *matCellDef="let row"> {{row.DOCTYPE}} </td>
               </ng-container> -->
 
-              <ng-container matColumnDef="CONFIG2">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>Config2</th>
-                <td mat-cell *matCellDef="let row"> {{row.CONFIG2}}</td>
-              </ng-container>
+             
 
               <!-- <ng-container matColumnDef="DocumentType_ID">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Doc Type</th>
@@ -468,14 +470,20 @@
               </ng-container> -->
 
               <ng-container matColumnDef="CONFIG1">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>Config1</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Plant</th>
                 <td mat-cell *matCellDef="let row"> {{row.CONFIG1}} </td>
               </ng-container>
 
+              <!-- <ng-container matColumnDef="CONFIG2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Config2</th>
+                <td mat-cell *matCellDef="let row"> {{row.CONFIG2}}</td>
+              </ng-container>
+              
               <ng-container matColumnDef="CONFIG3">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Config3</th>
                 <td mat-cell *matCellDef="let row"> {{row.CONFIG3}} </td>
-              </ng-container>
+              </ng-container> -->
+
               <ng-container matColumnDef="AUTHORITY">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Authority1</th>
                 <td mat-cell *matCellDef="let row"> {{row.AUTHORITY}} </td>
@@ -568,11 +576,6 @@
                 <td mat-cell *matCellDef="let row"> {{row.DOCTYPE}} </td>
               </ng-container> -->
 
-              <ng-container matColumnDef="CONFIG2">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>Config2</th>
-                <td mat-cell *matCellDef="let row"> {{row.CONFIG2}}</td>
-              </ng-container>
-
               <!-- <ng-container matColumnDef="DocumentType_ID">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Doc Type</th>
                 <td mat-cell *matCellDef="let row"> {{row.DocumentType_ID}} </td>
@@ -584,14 +587,19 @@
               </ng-container> -->
 
               <ng-container matColumnDef="CONFIG1">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>Config1</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Plant</th>
                 <td mat-cell *matCellDef="let row"> {{row.CONFIG1}} </td>
+              </ng-container>
+
+              <!-- <ng-container matColumnDef="CONFIG2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Config2</th>
+                <td mat-cell *matCellDef="let row"> {{row.CONFIG2}}</td>
               </ng-container>
 
               <ng-container matColumnDef="CONFIG3">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Config3</th>
                 <td mat-cell *matCellDef="let row"> {{row.CONFIG3}} </td>
-              </ng-container>
+              </ng-container> -->
 
               <ng-container matColumnDef="AUTHORITY">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Authority1</th>
@@ -693,18 +701,23 @@
                 <td mat-cell *matCellDef="let row"> {{row.INV_NAME}} </td>
               </ng-container>
 
+              <ng-container matColumnDef="PLANT">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Plant </th>
+                <td mat-cell *matCellDef="let row"> {{row.PLANT}} </td>
+              </ng-container>
+
               <ng-container matColumnDef="CODE">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Config1 </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Output Type </th>
                 <td mat-cell *matCellDef="let row"> {{row.CODE}} </td>
               </ng-container>
 
               <ng-container matColumnDef="DOCTYPE">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Config2 </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Billing Type </th>
                 <td mat-cell *matCellDef="let row"> {{row.DOCTYPE}} </td>
               </ng-container>
 
               <ng-container matColumnDef="AREA">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Config3 </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Sales Org </th>
                 <td mat-cell *matCellDef="let row"> {{row.AREA}} </td>
               </ng-container>
               <!-- <ng-container matColumnDef="SIGNED_AUTHORITY">
